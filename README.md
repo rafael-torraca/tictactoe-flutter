@@ -8,15 +8,16 @@ from Fatec Americana, and will be used to assess Flutter skills.
 
 Just clone the project and run it on your device, and you'll play the classic tic-tac-toe.
 
-![alt text](https://github.com/rafael-torraca/tictactoe-flutter/blob/main/app.png?raw=true)
+![First Version](https://github.com/rafael-torraca/tictactoe-flutter/blob/main/app.png?raw=true)
 
+![Second Version](https://github.com/rafael-torraca/tictactoe-flutter/blob/main/app2.png?raw=true)
 ## Desafio da Aula
 
-- [ ] Exibir o jogador da vez (Turno do X ou Turno do O); Pode usar um Text para isso.
-- [ ] Criar um placar de vitórias para cada jogador; Pode usar Text também
-- [ ] Criar uma splash screen para o aplicativo; Utilize o [plugin custom_splash](https://pub.dev/packages/custom_splash).
-- [ ] Adicionar um botão para compartilhar o aplicativo. Utilize o [plugin Share](https://pub.dev/packages/share).
-- [ ] Trocar o X e O por duas imagens (exemplo: Finn e Jake de Adventure Time) — como [utilizar imagens](https://flutter.dev/docs/development/ui/assets-and-images). Entendendo como colocar [imagens em um Container](https://medium.com/flutteropen/flutter-widgets-03-image-558e2b24059e).
+- [x] Exibir o jogador da vez (Turno do X ou Turno do O); Pode usar um Text para isso.
+- [x] Criar um placar de vitórias para cada jogador; Pode usar Text também
+- [x] Criar uma splash screen para o aplicativo; Utilize o [plugin custom_splash](https://pub.dev/packages/custom_splash).
+- [x] Adicionar um botão para compartilhar o aplicativo. Utilize o [plugin Share](https://pub.dev/packages/share).
+- [x] Trocar o X e O por duas imagens (exemplo: Finn e Jake de Adventure Time) — como [utilizar imagens](https://flutter.dev/docs/development/ui/assets-and-images). Entendendo como colocar [imagens em um Container](https://medium.com/flutteropen/flutter-widgets-03-image-558e2b24059e).
 
 ## Bonus
 

@@ -13,6 +13,7 @@ class GameController {
   List<int> movesPlayer2 = [];
   PlayerType currentPlayer;
   bool isSinglePlayer;
+  int v = 0, w = 0;
 
 /*
   bool hasMoves() { 
@@ -51,11 +52,13 @@ class GameController {
       tile.symbol = PLAYER1_SYMBOL;
       tile.color = PLAYER1_COLOR;
       movesPlayer1.add(tile.id);
+      tile.background = PLAYER1_SPRITE;
       currentPlayer = PlayerType.player2;
     } else {
       tile.symbol = PLAYER2_SYMBOL;
       tile.color = PLAYER2_COLOR;
       movesPlayer2.add(tile.id);
+      tile.background = PLAYER2_SPRITE;
       currentPlayer = PlayerType.player1;
     }
     tile.enable = false;
@@ -81,5 +84,13 @@ class GameController {
 
     moves.shuffle();
     return moves[0];
+  }
+
+  gameScore(String symbol) {
+    if (symbol == PLAYER1_SYMBOL) {
+      return v++;
+    } else if (symbol == PLAYER2_SYMBOL) {
+      return w++;
+    }
   }
 }

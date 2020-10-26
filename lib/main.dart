@@ -1,10 +1,25 @@
+import 'package:custom_splash/custom_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:tictactoe/core/constants.dart';
 import 'package:tictactoe/core/theme_app.dart';
 import 'package:tictactoe/pages/game_page.dart';
 
 void main() {
-  runApp(MyApp());
+  final app = {
+    'app': MyApp(),
+  };
+
+  runApp(MaterialApp(
+    home: CustomSplash(
+      imagePath: 'assets/house.png',
+      animationEffect: 'fade-in',
+      logoSize: 1024,
+      home: MyApp(),
+      duration: 2500,
+      type: CustomSplashType.StaticDuration,
+      outputAndHome: app,
+    ),
+  ));
 }
 
 class MyApp extends StatelessWidget {

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 const int BOARD_SIZE = 9;
 
-const String PLAYER1_SYMBOL = 'X';
-const Color PLAYER1_COLOR = Colors.red; // Alfa RGB (0xFFFF0000)
+const String PLAYER1_SYMBOL = 'Vampire';
+const String PLAYER1_SPRITE = 'assets/vamp.png';
+const Color PLAYER1_COLOR = Colors.deepPurple; // Alfa RGB (0xFFFF0000)
 
-const String PLAYER2_SYMBOL = 'O';
-const Color PLAYER2_COLOR = Colors.blue;
+const String PLAYER2_SYMBOL = 'Wolf';
+const String PLAYER2_SPRITE = 'assets/wolf.png';
+const Color PLAYER2_COLOR = Colors.teal;
 
 const String GAME_TITLE = 'Tic Tac Toe';
 const String TIED_TITLE = 'Game Tied!';

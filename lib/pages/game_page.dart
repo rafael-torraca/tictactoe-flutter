@@ -1,12 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 import 'package:tictactoe/controllers/game_controller.dart';
 import 'package:tictactoe/core/constants.dart';
 import 'package:tictactoe/dialogs/custom_dialog.dart';
 import 'package:tictactoe/enums/winner_type.dart';
 import 'package:tictactoe/models/game_tile.dart';
-
 import '../core/constants.dart';
 
 class GamePage extends StatefulWidget {
@@ -29,7 +28,12 @@ class _GamePageState extends State<GamePage> {
     return AppBar(
       title: Text(GAME_TITLE),
       centerTitle: true,
-      actions: [IconButton(icon: Icon(Icons.share), onPressed: () {})],
+      actions: [
+        IconButton(
+          icon: Icon(Icons.share),
+          onPressed: () => _shareTictactoe(context),
+        ),
+      ],
     );
   }
 
@@ -39,21 +43,12 @@ class _GamePageState extends State<GamePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          _scoreBoard(),
           _buildIsCurrentPlayerTurnText(),
           _buildBoard(),
           _buildPlayerMode(),
           _buildResetButton(),
         ],
-      ),
-    );
-  }
-
-  _buildIsCurrentPlayerTurnText() {
-    return Container(
-      child: Center(
-        child: Text(
-          "Turno do Jogador: " + _controller.isCurrentPlayerTurn(),
-        ),
       ),
     );
   }
@@ -91,12 +86,8 @@ class _GamePageState extends State<GamePage> {
       child: Container(
         color: tile.color,
         child: Center(
-          child: Text(
-            tile.symbol,
-            style: TextStyle(
-              fontSize: 72.0,
-              color: Colors.white,
-            ),
+          child: Image(
+            image: AssetImage(tile.background),
           ),
         ),
       ),
@@ -181,6 +172,67 @@ class _GamePageState extends State<GamePage> {
           _controller.isSinglePlayer = value;
         });
       },
+    );
+  }
+
+  _buildIsCurrentPlayerTurnText() {
+    return Container(
+      height: 25,
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor.withOpacity(0.25),
+      ),
+      child: Center(
+        child: Text(
+          _controller.isCurrentPlayerTurn() + ' turn!',
+          style: TextStyle(
+            color: Theme.of(context).primaryColor,
+            fontSize: 15,
+          ),
+        ),
+      ),
+    );
+  }
+
+  _shareTictactoe(BuildContext context) async {
+    await Share.share(
+      'Visite meu github e baixe o jogo em: https://github.com/rafael-torraca/tictactoe-flutter',
+    );
+  }
+
+  _scoreBoard() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor.withOpacity(0.25),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            children: [
+              Text(
+                PLAYER1_SYMBOL,
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 20,
+                ),
+              ),
+              Text(_controller.v.toString()),
+            ],
+          ),
+          Column(
+            children: [
+              Text(
+                PLAYER2_SYMBOL,
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 20,
+                ),
+              ),
+              Text(_controller.w.toString()),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
